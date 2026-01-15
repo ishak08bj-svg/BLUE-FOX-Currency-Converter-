@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>محول العملات العالمي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>محول العملات 🌍💰</h1>
+
+        <div class="converter">
+            <input type="number" id="amount" placeholder="المبلغ" value="1">
+
+            <select id="fromCurrency">
+                <!-- سيتم ملؤها تلقائيًا -->
+            </select>
+
+            <select id="toCurrency">
+                <!-- سيتم ملؤها تلقائيًا -->
+            </select>
+
+            <button onclick="convertCurrency()">حول الآن</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
