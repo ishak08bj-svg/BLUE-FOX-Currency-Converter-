@@ -1,49 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #e0f7fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  color: #111827;
 }
 
-.container {
-    background: white;
+/* ===== Navbar ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+nav h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+nav a {
+  text-decoration: none;
+  color: #111827;
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.hero h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  opacity: 0.8;
+}
+
+/* ===== Button ===== */
+.btn {
+  margin-top: 30px;
+  padding: 14px 30px;
+  background: #4f46e5;
+  color: white;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 15px 30px rgba(79,70,229,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 40px rgba(79,70,229,0.4);
+}
+
+/* ===== Cards ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 60px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.6;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  nav {
+    padding: 20px;
+  }
+
+  .cards {
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    text-align: center;
-    width: 400px;
-}
-
-input, select {
-    width: 120px;
-    padding: 8px;
-    margin: 5px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-#result {
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
+  }
 }
