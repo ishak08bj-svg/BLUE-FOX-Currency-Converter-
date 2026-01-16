@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -6,110 +6,67 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #f9fafb, #eef2ff);
-  color: #111827;
-}
-
-/* ===== Navbar ===== */
-nav {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
-}
-
-nav h1 {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-nav a {
-  text-decoration: none;
-  color: #111827;
-  margin-left: 20px;
-  font-weight: 500;
-}
-
-/* ===== Hero Section ===== */
-.hero {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
 }
 
-.hero h2 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 18px;
-  max-width: 600px;
-  opacity: 0.8;
-}
-
-/* ===== Button ===== */
-.btn {
-  margin-top: 30px;
-  padding: 14px 30px;
-  background: #4f46e5;
-  color: white;
-  border-radius: 14px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 15px 30px rgba(79,70,229,0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 40px rgba(79,70,229,0.4);
-}
-
-/* ===== Cards ===== */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  padding: 60px;
-}
-
-.card {
+/* Card */
+.converter {
   background: white;
+  width: 100%;
+  max-width: 420px;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-}
-
-/* ===== Footer ===== */
-footer {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  direction: rtl;
   text-align: center;
-  padding: 30px;
-  opacity: 0.6;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .hero h2 {
-    font-size: 36px;
-  }
+/* Title */
+.converter h1 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+}
 
-  nav {
-    padding: 20px;
-  }
+/* Inputs */
+.converter input,
+.converter select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 16px;
+}
 
-  .cards {
-    padding: 30px;
-  }
+/* Button */
+.converter button {
+  width: 100%;
+  padding: 14px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.converter button:hover {
+  background: #4338ca;
+}
+
+/* Result */
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  background: #eef2ff;
+  border-radius: 12px;
+  font-weight: 600;
 }
