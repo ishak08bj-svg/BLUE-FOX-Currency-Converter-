@@ -1,144 +1,174 @@
-/* ==== قاعدة أساسية ==== */
-body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
+/* قاعدة عامة */
+*{
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: 0.4s;
-  background: linear-gradient(135deg,#0f2027,#203a43);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body.dark{
+  background: radial-gradient(circle at top,#0a2a5f,#001f3f);
   color: #fff;
 }
 
-/* ==== الوضع الليلي / النهاري ==== */
-body.light {
-  background: linear-gradient(135deg,#fdfbfb,#ebedee);
+body.light{
+  background: radial-gradient(circle at top,#f0f0f0,#cfcfcf);
   color: #000;
 }
 
-/* ==== شريط الأعلى ==== */
-.top-bar {
-  position: fixed;
-  top: 15px;
-  right: 15px;
+/* شريط الأدوات العلوي */
+.top-bar{
+  width: 100%;
   display: flex;
+  justify-content: flex-end;
   gap: 10px;
-  z-index: 100;
+  padding: 15px 20px;
 }
 
-button.mode, button.lang {
-  padding: 10px;
-  border-radius: 50%;
+.top-bar button{
+  padding: 8px 14px;
   border: none;
+  border-radius: 12px;
   cursor: pointer;
-  background: rgba(255,255,255,0.2);
-  color: inherit;
-  font-size: 16px;
+  font-size: 1rem;
   transition: 0.3s;
+  font-weight: bold;
 }
 
-button.mode:hover, button.lang:hover {
-  background: rgba(255,255,255,0.4);
+.top-bar button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.4);
 }
 
-/* ==== الحاوية الرئيسية ==== */
-.container {
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 30px;
+body.dark .top-bar button{
+  background: linear-gradient(145deg,#1ec9ff,#005eff);
+  color: white;
+}
+
+body.light .top-bar button{
+  background: linear-gradient(145deg,#ffec5c,#ffc107);
+  color: black;
+}
+
+/* الحاوية الرئيسية */
+.container{
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
   border-radius: 25px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(15px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  text-align: center;
-  transition: 0.4s;
-}
-
-/* ==== العنوان ==== */
-h1 {
-  font-size: 28px;
-  margin-bottom: 25px;
-}
-
-/* ==== المدخلات والقوائم ==== */
-input, select {
-  width: 100%;
-  padding: 14px;
-  margin-top: 10px;
-  border-radius: 12px;
-  border: none;
-  font-size: 16px;
-  background: rgba(255,255,255,0.15);
-  color: inherit;
-  backdrop-filter: blur(5px);
-  transition: 0.3s;
-}
-
-input::placeholder {
-  color: rgba(255,255,255,0.7);
-}
-
-body.light input::placeholder {
-  color: rgba(0,0,0,0.6);
-}
-
-.select-box {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 15px;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-select {
-  flex: 1;
-  cursor: pointer;
+/* عنوان الموقع */
+.container h1{
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
 }
 
-/* ==== زر التحويل ==== */
-button#convert-btn {
-  margin-top: 15px;
+/* حقل إدخال المبلغ */
+#amount{
   width: 100%;
-  padding: 14px;
-  background: linear-gradient(90deg,#00c6ff,#0072ff);
-  font-size: 18px;
+  padding: 12px 15px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(0,0,0,0.2);
+  color: inherit;
+  text-align: right;
+}
+
+/* صندوق الاختيار */
+.select-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.select-box select{
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(0,0,0,0.2);
+  color: inherit;
+}
+
+/* سهم تبديل العملات */
+.select-box span{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* زر التحويل */
+#convert-btn{
+  padding: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
   border-radius: 15px;
   border: none;
   cursor: pointer;
-  color: #fff;
-  font-weight: bold;
+  background: linear-gradient(145deg,#00ff6a,#00c851);
+  color: white;
   transition: 0.3s;
 }
 
-button#convert-btn:hover {
-  background: linear-gradient(90deg,#0072ff,#00c6ff);
-  transform: scale(1.03);
+#convert-btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
 }
 
-/* ==== نتيجة التحويل ==== */
-.result {
-  margin-top: 20px;
-  font-size: 20px;
+/* نتيجة التحويل */
+.result{
+  margin-top: 10px;
+  font-size: 1.3rem;
   font-weight: bold;
+  text-align: center;
   padding: 10px;
   border-radius: 12px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(5px);
+  background: rgba(0,0,0,0.2);
 }
 
-/* ==== الرسم البياني ==== */
-canvas {
-  margin-top: 25px;
+/* الرسم البياني */
+canvas#chart{
+  margin-top: 15px;
   border-radius: 15px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(5px);
-  padding: 10px;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* ==== متجاوب للموبايل ==== */
-@media screen and (max-width: 480px) {
-  .container {
-    margin: 70px 15px;
-    padding: 20px;
+/* الوضع الليلي / النهاري للألوان */
+body.light #amount,
+body.light .select-box select,
+body.light .result,
+body.light canvas#chart{
+  background: rgba(255,255,255,0.6);
+  color: black;
+}
+
+body.light #convert-btn{
+  background: linear-gradient(145deg,#ffec5c,#ffc107);
+  color: black;
+}
+
+/* متجاوب */
+@media(max-width: 600px){
+  .container{
+    width: 95%;
   }
-  h1 { font-size: 24px; }
-  input, select, button#convert-btn { font-size: 16px; padding: 12px; }
+  .top-bar{
+    justify-content: space-between;
+  }
 }
